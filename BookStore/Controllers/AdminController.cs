@@ -15,7 +15,7 @@ namespace BookStore.Controllers
         public HttpResponseMessage Post(string username, string password)
         {
             var data = (from adm in db.User_tbl where 
-                        adm.role == "admin" && 
+                        adm.Role == "admin" && 
                         adm.Username == username && 
                         adm.Password == password
                         select new User
@@ -23,7 +23,7 @@ namespace BookStore.Controllers
                             userId = adm.Id,
                             Username = adm.Username,
                             Password = adm.Password,
-                            Role = adm.role
+                            Role = adm.Role
                         }).ToList(); 
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }

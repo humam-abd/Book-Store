@@ -24,7 +24,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="20" />
           <Property Name="Password" Type="varchar" MaxLength="20" />
-          <Property Name="role" Type="varchar" MaxLength="10" />
+          <Property Name="Role" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Book_tbl" EntityType="Self.Book_tbl" Schema="dbo" store:Type="Tables" />
@@ -35,18 +35,9 @@
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="BookStoreEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="User_tbl" EntityType="Model.User_tbl" />
           <EntitySet Name="Book_tbl" EntityType="Model.Book_tbl" />
+          <EntitySet Name="User_tbl" EntityType="Model.User_tbl" />
         </EntityContainer>
-        <EntityType Name="User_tbl">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Book_tbl">
           <Key>
             <PropertyRef Name="Id" />
@@ -59,22 +50,21 @@
           <Property Name="PublishedYear" Type="Int32" />
           <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
+        <EntityType Name="User_tbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="BookStoreEntities">
-          <EntitySetMapping Name="User_tbl">
-            <EntityTypeMapping TypeName="Model.User_tbl">
-              <MappingFragment StoreEntitySet="User_tbl">
-                <ScalarProperty Name="role" ColumnName="role" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Book_tbl">
             <EntityTypeMapping TypeName="Model.Book_tbl">
               <MappingFragment StoreEntitySet="Book_tbl">
@@ -84,6 +74,16 @@
                 <ScalarProperty Name="Author" ColumnName="Author" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_tbl">
+            <EntityTypeMapping TypeName="Model.User_tbl">
+              <MappingFragment StoreEntitySet="User_tbl">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

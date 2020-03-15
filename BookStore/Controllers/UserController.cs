@@ -16,14 +16,14 @@ namespace BookStore.Controllers
         public HttpResponseMessage Post(string username, string password)
         {
             var data = (from user in db.User_tbl where 
-                        user.role == "user" && 
+                        user.Role == "user" && 
                         username == user.Username && 
                         password == user.Password
                         select new User { 
                             userId = user.Id,
                             Username = user.Username,
                             Password = user.Password,
-                            Role = user.role
+                            Role = user.Role
                         }).ToList();
             return Request.CreateResponse(HttpStatusCode.OK,data);
         }

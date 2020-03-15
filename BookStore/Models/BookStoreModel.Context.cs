@@ -25,7 +25,7 @@ namespace BookStore.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User_tbl> User_tbl { get; set; }
         public virtual DbSet<Book_tbl> Book_tbl { get; set; }
+        public virtual DbSet<User_tbl> User_tbl { get; set; }
     }
 }
