@@ -42,5 +42,13 @@ namespace BookStore.Controllers
                         }).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+
+        //Post Add Book
+        public HttpResponseMessage Post(Book_tbl bk)
+        {
+            var data = db.Book_tbl.Add(bk);
+            db.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
     }
 }
