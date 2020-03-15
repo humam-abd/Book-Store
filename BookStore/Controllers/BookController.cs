@@ -43,7 +43,7 @@ namespace BookStore.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
-        //Post Add Book
+        //Post Add a Book
         public HttpResponseMessage Post(Book_tbl bk)
         {
             var data = db.Book_tbl.Add(bk);
