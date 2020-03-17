@@ -3,12 +3,14 @@ import React from "react";
 import "./App.css";
 
 class Navbar extends React.Component {
+  componentDidMount() {}
+
   render() {
     return (
       <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" href="#">
-            Navbar
+            Book-Store
           </a>
           <button
             class="navbar-toggler"
@@ -24,17 +26,17 @@ class Navbar extends React.Component {
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
+              <li class="nav-item nav_ul">
                 <a class="nav-link" href="#">
                   AllBooks
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item nav_ul">
                 <a class="nav-link" href="#">
                   Free
                 </a>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown nav_ul">
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -62,9 +64,8 @@ class Navbar extends React.Component {
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><button className="btn btn-primary">
-                    Add Book
-                </button>
+                <a class="nav-link" href="#">
+                  <button className="btn btn-primary">Add Book</button>
                 </a>
               </li>
             </ul>

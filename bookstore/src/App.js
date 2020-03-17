@@ -1,14 +1,17 @@
 import React from "react";
 import "./App.css";
 import BookCard from "./Card";
-import Navbar from "./Navbar";
+import AddBook from "./AddBook";
+import {BrowserRouter as BR, Route} from "react-router-dom";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-      <Navbar></Navbar>
-      <BookCard></BookCard>
+      <BR>
+      <Route exact path="/" component={BookCard}/>
+      <Route exact path="/AddBook" component={AddBook}/>
+      </BR>
       </div>
     );
   }

@@ -43,3 +43,17 @@
 .card_style{
   width: 18rem;
 }
+.nav_ul{
+  margin-top: 8px;
+}
+.addcolor{
+  color: rgb(107, 107, 107);
+}
+.toppad{
+  padding-top: 120px;
+}
+.btnalign{
+  margin-top:20px;
+  width: 100px;
+  float: right;
+}
