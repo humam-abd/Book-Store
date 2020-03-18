@@ -68,6 +68,9 @@ class Navbar extends React.Component {
                   <button className="btn btn-primary">Add Book</button>
                 </a>
               </li>
+              <li>
+                <a href="/"><button class="btn btn-secondary nav_ul">Logout</button></a>
+              </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
               <input

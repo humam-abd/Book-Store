@@ -52,8 +52,19 @@
 .toppad{
   padding-top: 120px;
 }
+.toppadplus{
+  padding-top: 200px;
+}
 .btnalign{
   margin-top:20px;
   width: 100px;
   float: right;
+}
+.signdiv{
+  width: 500px;
+  text-align: center;
+}
+
+.inp{
+  text-align: center;
 }

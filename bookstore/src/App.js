@@ -3,6 +3,7 @@ import "./App.css";
 import BookCard from "./Card";
 import AddBook from "./AddBook";
 import {BrowserRouter as BR, Route} from "react-router-dom";
+import Signin from "./SignIn";
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
       <BR>
       <Route exact path="/" component={BookCard}/>
       <Route exact path="/AddBook" component={AddBook}/>
+      <Route exact path="/Signin" component={Signin}/>
       </BR>
       </div>
     );
