@@ -3,6 +3,9 @@ import React from "react";
 import "./App.css";
 
 class Navbar extends React.Component {
+  logOut=()=>{
+    localStorage.removeItem("session");
+  }
   componentDidMount() {}
 
   render() {
@@ -64,12 +67,12 @@ class Navbar extends React.Component {
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/AddBook">
                   <button className="btn btn-primary">Add Book</button>
                 </a>
               </li>
               <li>
-                <a href="/"><button class="btn btn-secondary nav_ul">Logout</button></a>
+                <a href="/"><button onClick={this.logOut} class="btn btn-secondary nav_ul">Logout</button></a>
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
