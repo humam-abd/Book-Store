@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./App.css";
 import axios from "axios";
@@ -8,40 +9,54 @@ class Signin extends React.Component {
     super();
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      role: "admin"
     };
   }
   signIn = event => {
     event.preventDefault();
     var uname = this.state.username;
     var pass = this.state.password;
-    axios.post(`${baseurl}Admin?username=${uname}&password=${pass}`).then(
-      result => {
-        if (result.data != "") {
-          console.log(result);
-          if (
-            result.data[0].Username == uname &&
-            result.data[0].Password == pass
-          ) {
-            localStorage.setItem("session", 1);
-            this.props.history.push("/main");
+    var urole = this.state.role;
+    axios
+      .post(`${baseurl}User?username=${uname}&password=${pass}&role=${urole}`)
+      .then(
+        result => {
+          if (result.data != "") {
+            console.log(result);
+            if (
+              result.data[0].Username == uname &&
+              result.data[0].Password == pass
+            ) {
+              if (result.data[0].Role == "admin") {
+                localStorage.setItem("session", 1);
+                console.log(this.state.role);
+                this.props.history.push("/main");
+              } else if (result.data[0].Role == "user") {
+                localStorage.setItem("session", 2);
+                this.props.history.push("/main");
+              }
+            } else {
+              alert("Not a valid user");
+            }
           } else {
             alert("Not a valid user");
           }
-        } else {
-          alert("Not a valid user");
+        },
+        error => {
+          console.log(error);
         }
-      },
-      error => {
-        console.log(error);
-      }
-    );
+      );
   };
   userName = event => {
     this.setState({ username: event.target.value });
   };
   passWord = event => {
     this.setState({ password: event.target.value });
+  };
+  userChange = event => {
+    this.setState({ role: event.target.value });
+    // console.log(this.state.role);
   };
   render() {
     return (
@@ -64,6 +79,17 @@ class Signin extends React.Component {
               value={this.state.password}
               onChange={this.passWord}
             />
+          </div>
+          <div className="form-group">
+            <select
+              className="browser-default form-control"
+              onChange={this.userChange}
+              value={this.state.role}
+
+            >
+              <option value="admin">admin</option>
+              <option value="user">user</option>
+            </select>
           </div>
           <button type="submit" className="btn btn-primary">
             Login

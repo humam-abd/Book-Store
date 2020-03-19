@@ -13,7 +13,7 @@ class BookCard extends React.Component {
   componentDidMount() {
     var ses = localStorage.getItem("session");
     console.log(ses);
-    if (ses == 1) {
+    if (ses == 1 || ses == 2) {
       axios.get(baseurl + "Book").then(
         result => {
           console.log(result.data);

@@ -9,6 +9,15 @@ class Navbar extends React.Component {
   componentDidMount() {}
 
   render() {
+    var ses = localStorage.getItem("session");
+    if(ses == 1){
+    var add = <li class="nav-item">
+    <a class="nav-link" href="/AddBook">
+      <button className="btn btn-primary">Add Book</button>
+    </a>
+  </li>
+    }
+    
     return (
       <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -66,11 +75,7 @@ class Navbar extends React.Component {
                   </a>
                 </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/AddBook">
-                  <button className="btn btn-primary">Add Book</button>
-                </a>
-              </li>
+              {add}
               <li>
                 <a href="/"><button onClick={this.logOut} class="btn btn-secondary nav_ul">Logout</button></a>
               </li>
