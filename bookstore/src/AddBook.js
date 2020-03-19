@@ -15,6 +15,12 @@ class AddBook extends React.Component {
       cost: ""
     };
   }
+  componentDidMount() {
+    var ses = localStorage.getItem("session");
+    if (ses != 1) {
+      this.props.history.push("/");
+    }
+  }
   nameChange = event => {
     this.setState({ name: event.target.value });
   };

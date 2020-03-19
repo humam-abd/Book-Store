@@ -11,12 +11,14 @@ class CategBook extends React.Component {
     this.state = { Books: "" };
   }
 
-
   componentDidMount() {
     var ses = localStorage.getItem("session");
     console.log(ses);
     var categ = localStorage.getItem("category");
     console.log(categ);
+    if (ses != 1 && ses != 2) {
+      this.props.history.push("/");
+    }
     if (ses == 1 || ses == 2) {
       axios.get(`${baseurl}Search?category=${categ}`).then(
         result => {
@@ -48,6 +50,7 @@ class CategBook extends React.Component {
       );
     } else {
       alert("Not a valid user");
+      this.props.history.push("/");
     }
   }
   render() {
