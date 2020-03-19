@@ -10,6 +10,8 @@ class BookCard extends React.Component {
     super();
     this.state = { BookList: "" };
   }
+
+
   componentDidMount() {
     var ses = localStorage.getItem("session");
     console.log(ses);

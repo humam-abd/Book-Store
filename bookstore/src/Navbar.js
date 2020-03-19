@@ -6,8 +6,12 @@ class Navbar extends React.Component {
   logOut=()=>{
     localStorage.removeItem("session");
   }
-  componentDidMount() {}
 
+  ficbk=()=>{
+    var fiction = "Fiction";
+    alert(fiction+" selected");
+    localStorage.setItem("category",fiction);
+  }
   render() {
     var ses = localStorage.getItem("session");
     if(ses == 1){
@@ -39,12 +43,12 @@ class Navbar extends React.Component {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item nav_ul">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/main">
                   AllBooks
                 </a>
               </li>
               <li class="nav-item nav_ul">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#" >
                   Free
                 </a>
               </li>
@@ -61,7 +65,7 @@ class Navbar extends React.Component {
                   Category
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="#" onClick={this.ficbk}>
                     Fiction
                   </a>
                   <a class="dropdown-item" href="#">

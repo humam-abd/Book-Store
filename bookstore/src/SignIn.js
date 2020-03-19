@@ -63,6 +63,9 @@ class Signin extends React.Component {
       <div className="container toppadplus signdiv">
         <form onSubmit={this.signIn}>
           <div className="form-group">
+          <label className="bmd-label-floating lab addcolor">
+                              Username
+                            </label>
             <input
               type="text"
               className="form-control inp"
@@ -72,6 +75,9 @@ class Signin extends React.Component {
             />
           </div>
           <div className="form-group">
+          <label className="bmd-label-floating lab addcolor">
+                              Password
+                            </label>
             <input
               type="password"
               className="form-control inp"
@@ -81,6 +87,9 @@ class Signin extends React.Component {
             />
           </div>
           <div className="form-group">
+          <label className="bmd-label-floating lab addcolor">
+                              User Type
+                            </label>
             <select
               className="browser-default form-control"
               onChange={this.userChange}
