@@ -18,6 +18,7 @@ namespace BookStore.Controllers
                         bk.Category == category 
                         select new BookList { 
                         BookName = bk.Name,
+                        Category = bk.Category,
                         Author = bk.Author,
                         Cost = bk.Cost
                         }).ToList();
