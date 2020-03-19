@@ -58,7 +58,7 @@ class AddBook extends React.Component {
           }
         );
     } else {
-      alert("Not allowed to Add \n Not Valid Session");
+      alert("Not allowed to Add \nNot Valid Session");
       this.props.history.push("/");
     }
   };

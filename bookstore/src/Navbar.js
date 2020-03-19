@@ -8,9 +8,20 @@ class Navbar extends React.Component {
   }
 
   ficbk=()=>{
-    var fiction = "Fiction";
-    alert(fiction+" selected");
-    localStorage.setItem("category",fiction);
+    alert("Fiction selected");
+    localStorage.setItem("category","Fiction");
+  }
+  biobk=()=>{
+    alert("Biography selected");
+    localStorage.setItem("category","Biography");
+  }
+  autobk=()=>{
+    alert("AutoBiography selected");
+    localStorage.setItem("category","Autobiography");
+  }
+  scfbk=()=>{
+    alert("Science-Fiction selected");
+    localStorage.setItem("category","Science-Fiction");
   }
   render() {
     var ses = localStorage.getItem("session");
@@ -25,7 +36,7 @@ class Navbar extends React.Component {
     return (
       <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand">
             Book-Store
           </a>
           <button
@@ -65,16 +76,16 @@ class Navbar extends React.Component {
                   Category
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#" onClick={this.ficbk}>
+                  <a class="dropdown-item" href="/CategBook" onClick={this.ficbk}>
                     Fiction
                   </a>
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="/CategBook" onClick={this.biobk}>
                     Biography
                   </a>
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="/CategBook" onClick={this.autobk}>
                     Autobiography
                   </a>
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="/CategBook" onClick={this.scfbk}>
                     Science-Fiction
                   </a>
                 </div>
