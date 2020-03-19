@@ -13,10 +13,10 @@ namespace BookStore.Controllers
         BookStoreEntities db = new BookStoreEntities();
 
         //User Login
-        public HttpResponseMessage Post(string username, string password)
+        public HttpResponseMessage Post(string username, string password, string role)
         {
             var data = (from user in db.User_tbl where 
-                        user.Role == "user" && 
+                        user.Role == role && 
                         username == user.Username && 
                         password == user.Password
                         select new User { 
