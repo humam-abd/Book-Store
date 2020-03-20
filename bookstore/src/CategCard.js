@@ -26,12 +26,18 @@ class CategBook extends React.Component {
           var Books = result.data.map((list, index) => {
             console.log(list);
             return (
-              <div
-                class="card card_style col-lg-4 col-md-2 col-sm-1"
-                key={list.BookName}
-              >
+              <div class="card card_style col-lg-4" key={list.BookName}>
                 <div class="card-body">
-                  <h5 class="card-title">{list.BookName}</h5>
+                  <h5 class="card-title">
+                    <a
+                      href="/Description"
+                      onClick={() =>
+                        localStorage.setItem("BookName", list.BookName)
+                      }
+                    >
+                      {list.BookName}
+                    </a>
+                  </h5>
                   <h6 class="card-subtitle">{list.Category}</h6>
                   <h6>{list.Author}</h6>
                   <h6>₹{list.Cost}</h6>

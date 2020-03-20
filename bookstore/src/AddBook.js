@@ -72,6 +72,9 @@ class AddBook extends React.Component {
     return (
       <div>
         <div class="container toppad">
+          <a href="/main">
+            <button class="btn btn-secondary">Back</button>
+          </a>
           <form onSubmit={this.handleSubmit}>
             <div class="form-group">
               <label for="exampleFormControlInput1" class="addcolor">
