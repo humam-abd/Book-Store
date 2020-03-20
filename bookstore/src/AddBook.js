@@ -18,7 +18,7 @@ class AddBook extends React.Component {
   componentDidMount() {
     var ses = localStorage.getItem("session");
     if (ses != 1) {
-      this.props.history.push("/");
+      this.props.history.push("/main");
     }
   }
   nameChange = event => {

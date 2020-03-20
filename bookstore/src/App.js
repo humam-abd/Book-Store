@@ -5,6 +5,7 @@ import AddBook from "./AddBook";
 import {BrowserRouter as BR, Route} from "react-router-dom";
 import Signin from "./SignIn";
 import CategBook from "./CategCard";
+import SearchBook from "./Search";
 
 class App extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class App extends React.Component {
       <Route exact path="/AddBook" component={AddBook}/>
       <Route exact path="/" component={Signin}/>
       <Route exact path="/CategBook" component = {CategBook}/>
+      <Route exact path="/Search" component = {SearchBook}/>
       </BR>
       </div>
     );

@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import { baseurl } from "./baseurl";
 import axios from "axios";
 
-class CategBook extends React.Component {
+class SearchBook extends React.Component {
   constructor() {
     super();
     this.state = { Books: "" };
@@ -14,13 +14,13 @@ class CategBook extends React.Component {
   componentDidMount() {
     var ses = localStorage.getItem("session");
     console.log(ses);
-    var categ = localStorage.getItem("category");
-    console.log(categ);
+    var search = localStorage.getItem("search");
+    console.log(search);
     if (ses != 1 && ses != 2) {
       this.props.history.push("/");
     }
     if (ses == 1 || ses == 2) {
-      axios.get(`${baseurl}Search?category=${categ}`).then(
+      axios.post(`${baseurl}Search?bookName=${search}`).then(
         result => {
           console.log(result.data);
           var Books = result.data.map((list, index) => {
@@ -43,7 +43,7 @@ class CategBook extends React.Component {
             );
           });
           this.setState({ Books: Books });
-          localStorage.removeItem("category");
+          localStorage.removeItem("search");
         },
         error => {
           console.log(error);
@@ -65,4 +65,4 @@ class CategBook extends React.Component {
     );
   }
 }
-export default CategBook;
+export default SearchBook;
