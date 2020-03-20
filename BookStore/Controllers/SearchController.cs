@@ -25,6 +25,20 @@ namespace BookStore.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
 
+        public HttpResponseMessage Post(string bookName)
+        {
+            var data = (from bk in db.Book_tbl
+                        where bk.Name == bookName
+                        select new BookList
+                        {
+                            BookName = bk.Name,
+                            Category = bk.Category,
+                            Author = bk.Author,
+                            Cost = bk.Cost
+                        }).ToList();
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
 
     }
 }
